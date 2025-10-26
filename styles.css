@@ -1,0 +1,909 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonts & Colors */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding-top: 80px;
+}
+
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ---------- Header / Navbar (Static Fixed) ---------- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ef1919;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* ensures navbar stays on top */
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #007bff;
+  font-weight: 700;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #f9f8f8;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  background: #007bff;
+  color: #fff;
+}
+/* Booking Form */
+.booking-form {
+  background: white;
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  opacity: 0.9;
+}
+
+.booking-form h2 {
+  margin-bottom: 20px;
+}
+
+.booking-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.booking-form input,
+.booking-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.booking-form button {
+  background-color: #007BFF;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.booking-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+/* --- Base Styling and Dark Background --- */
+.main-footer {
+    /* Use a dark background color similar to the image */
+    background-color: #222222;
+    color: #cccccc; /* Light text color */
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+    background-image: url('dashboard-overlay.jpg'); /* Optional: Add a subtle background image overlay like in the screenshot */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* Optional: Darken the image with an overlay for better text contrast */
+    z-index: 1; 
+}
+
+/* Optional overlay */
+.main-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent overlay */
+    z-index: -1;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+    justify-content: space-between;
+}
+
+.footer-col {
+    flex: 1 1 23%; /* Distribute space relatively evenly, allowing flex-wrap */
+    padding: 10px;
+    min-width: 200px; /* Minimum width for columns before wrapping */
+}
+
+/* Adjustments for the layout in the image: Brand info is wider, Get In Touch is grouped with cities */
+@media (min-width: 768px) {
+    .footer-col.brand-info {
+        flex: 1 1 30%; /* Make brand info slightly wider */
+    }
+    .footer-col.quick-links,
+    .footer-col.rental-cities,
+    .footer-col.get-in-touch {
+        flex: 1 1 20%;
+    }
+    /* Specific adjustment to fit the visual grouping: */
+    .footer-container {
+        justify-content: flex-start;
+        gap: 30px; /* Add some space between main sections */
+    }
+}
+
+/* --- Headings and Text --- */
+.footer-col h3 {
+    color: #ffffff; /* White headings */
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.footer-col h4 {
+    color: #ffffff;
+    font-size: 1em;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.footer-col p {
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* --- Brand Info (Column 1) --- */
+.brand-info .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.brand-info .logo img {
+    height: 30px; /* Adjust as needed */
+    margin-right: 10px;
+}
+
+.brand-info .logo-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #e54c4c; /* Red/Orange color for the name */
+    display: none; /* Hide if only an image is used, or adjust as needed */
+}
+
+/* --- Links (Quick Links & Cities) --- */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col li {
+    margin-bottom: 8px;
+}
+
+.footer-col a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.footer-col a:hover {
+    color: #e54c4c; /* Highlight on hover (Red/Orange) */
+}
+
+.footer-col .icon {
+    margin-right: 8px;
+    color: #ff9900; /* Use a distinct color for the link icon (Orange from the screenshot) */
+}
+
+/* --- Social Media Icons --- */
+.social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #555555; /* Icon background */
+    color: #ffffff; /* Icon text color */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.social-icon:hover {
+    background-color: #e54c4c; /* Hover color */
+}
+
+/* --- Get In Touch (Column 4) --- */
+.get-in-touch .contact-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.get-in-touch .contact-info .icon {
+    font-size: 1.1em;
+    margin-right: 10px;
+    color: #e54c4c; /* Use the brand highlight color for contact icons */
+}
+
+.get-in-touch .email,
+.get-in-touch .phone {
+    font-size: 1em;
+}
+
+/* --- Copyright Section --- */
+.copyright {
+    text-align: center;
+    padding: 20px 0 10px 0;
+    font-size: 0.8em;
+    color: #999999;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 30px;
+}
+/* Contact page */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  gap: 60px;
+  width: 100%;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info h2 {
+  color: #222;
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.contact-info h3 {
+  color: #d9531e;
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.contact-form {
+  flex: 1;
+}
+
+.contact-form h2 {
+  font-size: 26px;
+  color: #222;
+}
+
+.contact-form p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  gap: 15px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d9531e;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button {
+  width: 140px;
+  padding: 12px;
+  background-color: #d9531e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #bf3e10;
+}
+
+.locations {
+  text-align: center;
+  background-color: #f9f6f0;
+  padding: 40px 20px;
+}
+
+.locations h2 {
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+.city-buttons button {
+  margin: 8px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.city-buttons button.active {
+  background-color: #d9531e;
+  color: white;
+}
+
+.city-buttons button:hover {
+  transform: scale(1.05);
+}
+/* Map Section */
+.map-section {
+  background-color: #f9f6f0;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.map-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.map-container h3 {
+  color: #d9531e;
+  margin-bottom: 10px;
+}
+
+.map-container p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+/* Active link highlight */
+nav a.active {
+  text-decoration: underline;
+}
+/* Hero Section for Home Page */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1100px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 40px;
+}
+
+.hero-content {
+  flex: 1 1 45%;
+}
+
+.hero-content h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.hero-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.hero-image {
+  flex: 1 1 45%;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+/* Biker Page */
+.bike-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bike-card {
+  background: #fff;
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding: 10px 15px 20px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.bike-card:hover {
+  transform: translateY(-5px);
+}
+
+.bike-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+}
+
+.tag {
+  background: #d32f2f;
+  color: #fff;
+  display: inline-block;
+  padding: 5px 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.bike-card h3 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.price {
+  font-size: 15px;
+  color: #d32f2f;
+  float: right;
+}
+
+.plan {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.plan button {
+  flex: 1;
+  border: none;
+  padding: 8px;
+  background: #f2f2f2;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.plan button.active {
+  background: #d32f2f;
+  color: #fff;
+}
+
+.plan button:hover {
+  background: #d32f2f;
+  color: white;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
+  text-align: left;
+}
+
+table td {
+  padding: 4px 0;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.btn-group .book,
+.btn-group .call {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+.book {
+  background-color: #c62828;
+}
+
+.call {
+  background-color: #d32f2f;
+}
+
+.book:hover,
+.call:hover {
+  background-color: #b71c1c;
+}
+/* Career Page */
+/* --- Base Page Setup --- */
+main {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7; /* Light gray background to match the screenshot */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* --- Main Layout: Two Columns --- */
+.career {
+    /* Set up the main section as a flex container */
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* Space between the intro and job list */
+}
+
+/* Move the h2 and introductory paragraph to the left column */
+.career > h2,
+.career > p {
+    /* This assumes the h2 and p are direct children of .career, 
+       but based on your HTML, they are inside .container. 
+       Let's adjust the HTML structure slightly for a better flex layout, 
+       or use the existing structure with specific targeting. 
+       
+       Since the HTML has h2 and p inside .container, we'll target the .container
+       to create the two main sections.
+    */
+    display: flex;
+    flex-wrap: wrap; /* Allows sections to stack on mobile */
+    align-items: flex-start; /* Aligns content to the top */
+}
+
+/* Style the Intro Text Block (h2 and p) */
+.container h2 {
+    font-size: 3.5em; /* Large, stacked text style */
+    font-weight: bold;
+    color: #333;
+    line-height: 1.1;
+    margin-top: 0;
+    margin-bottom: 20px;
+    /* Create the left column visual group */
+    flex: 0 0 30%; /* Set width for the left column */
+    max-width: 30%;
+    text-transform: uppercase;
+}
+
+.container > p {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.5;
+    /* Position the description text next to the heading, occupying remaining space */
+    flex: 1; 
+    padding-left: 50px; /* Space from the H2 */
+    margin-top: 20px;
+}
+
+/* --- Job Listings Container (Right Column) --- */
+.career-list {
+    /* The job list should act as the right column. 
+       We need to contain it within a wrapper to control its position and size.
+       Since the HTML wraps it, let's treat the h2/p as the left, and .career-list as the right.
+    */
+    display: flex;
+    flex-direction: column; /* Stack job items vertically */
+    gap: 20px;
+    flex: 0 0 65%; /* Set width for the right column */
+    max-width: 65%;
+}
+
+/* --- Job Item Card Styling --- */
+.career-item {
+    background-color: #ffffff; /* White card background */
+    padding: 25px;
+    border-radius: 8px;
+    /* Subtle shadow to lift the card, as seen in the screenshot */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08); 
+    border: 1px solid #eee; /* Light border for definition */
+}
+
+.career-item h3 {
+    color: #e54c4c; /* Highlight color (Red/Orange) */
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.career-item p {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.career-item p strong {
+    font-weight: 600;
+    color: #000;
+}
+
+/* --- Apply Button Styling --- */
+.btn {
+    display: inline-block;
+    color: #e54c4c; /* Red/Orange text color */
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent; 
+    transition: border-bottom-color 0.3s;
+}
+
+.btn:hover {
+    border-bottom-color: #e54c4c; /* Underline effect on hover */
+}
+
+
+/* --- Responsive Adjustments (for mobile view) --- */
+@media (max-width: 900px) {
+    .container {
+        display: block; /* Remove flex on container for mobile */
+    }
+    
+    .container h2,
+    .container > p,
+    .career-list {
+        flex: 1 1 100%; /* Make all elements full width */
+        max-width: 100%;
+        padding-left: 0;
+        text-align: center; /* Center intro text on mobile */
+    }
+    
+    .container h2 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    .container > p {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+    
+    .career-list {
+        gap: 15px;
+    }
+}
+/* Simplified CSS targeting the wrapper */
+.career-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; 
+    align-items: flex-start;
+}
+
+.career-intro {
+    flex: 0 0 30%; /* Left Column */
+}
+.career-list {
+    flex: 0 0 65%; /* Right Column */
+    /* ... rest of the styling ... */
+}
+
+/* ---------- Safety Page (Updated Layout) ---------- */
+.safety-header {
+  text-align: center;
+  padding: 60px 10%;
+  background: linear-gradient(to right, #f0f8ff, #e6f2ff);
+}
+
+.safety-header h2 {
+  font-size: 2rem;
+  color: #222;
+}
+
+.safety-header p {
+  max-width: 600px;
+  margin: 10px auto 30px;
+  color: #555;
+}
+
+.safety-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  border: 2px solid #007bff;
+  background: transparent;
+  color: #007bff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+/* --- Safety Sections --- */
+.safety-section {
+  padding: 60px 10%;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.safety-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.safety-content.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Make all images same size */
+.safety-content img {
+  width: 100%;
+  max-width: 450px;
+  height: 300px;
+ object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Section */
+.safety-content .text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.safety-content h3 {
+  color: #007bff;
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+}
+
+.safety-content p {
+  color: #444;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+/* hero Section for bikers page*/
+.hero-section {
+  background-color: #000; /* black background */
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero-content h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.book-btn {
+  background-color: white;
+  color: #d32f2f;
+}
+
+.call-btn {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.book-btn:hover {
+  background-color: #f2f2f2;
+}
+
+.call-btn:hover {
+  background-color: #b71c1c;
+}
+
+
+
+
+
+
+
+
+
+
+
